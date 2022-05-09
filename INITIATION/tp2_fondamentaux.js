@@ -6,11 +6,13 @@ function hundredRandoms() {
     let alreadyIn;
     let tabCent = [];
     let rand;
+    let tirages = 0;
     console.log("Début tirage");
 
     do {
         alreadyIn = false;
         rand = Math.floor(Math.random() * 100);
+        tirages ++;
         tabCent.forEach(element => { if (rand == element) { alreadyIn = true } });
 
         if (alreadyIn == false) {
@@ -22,7 +24,7 @@ function hundredRandoms() {
 
     } while (tabCent.length != 100);
 
-    console.log("Les cents premiers nombres ont tous été générés.")
+    console.log("Les cents premiers nombres ont tous été générés après " + tirages + " tirages.")
 
 }
 
