@@ -2,7 +2,7 @@ let ex1 = "une chaine avec des lettres dans un certain ordre pour donner du sens
 let ex2 = "une phrase sans majuscule";
 
 function hundredRandoms() {
-   
+
     let alreadyIn;
     let tabCent = [];
     let rand;
@@ -11,16 +11,16 @@ function hundredRandoms() {
     do {
         alreadyIn = false;
         rand = Math.floor(Math.random() * 100);
-        tabCent.forEach(element => {if (rand == element) { alreadyIn = true } } );
+        tabCent.forEach(element => { if (rand == element) { alreadyIn = true } });
 
         if (alreadyIn == false) {
             tabCent.push(rand);
             console.log(tabCent.length + " : " + rand);
-            
+
         }
 
 
-    } while(tabCent.length != 100);
+    } while (tabCent.length != 100);
 
     console.log("Les cents premiers nombres ont tous été générés.")
 
@@ -36,10 +36,10 @@ function triLettres(phrase) {
 
 function capitalize(phrase) {
     let tab = phrase.split(" ");
-    for(let i = 0; i < tab.length; i++) {
-    let str = tab[i]
-    str = str.charAt(0).toUpperCase() + str.slice(1);
-    tab[i] = str;
+    for (let i = 0; i < tab.length; i++) {
+        let str = tab[i]
+        str = str.charAt(0).toUpperCase() + str.slice(1);
+        tab[i] = str;
     }
     tab = tab.join(" ");
     return tab;
