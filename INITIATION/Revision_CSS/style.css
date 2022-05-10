@@ -1,0 +1,47 @@
+/* selecteur de balises/type/tag */
+
+h1 {
+    color : orangered;
+}
+
+h2 {
+    color: deeppink ;
+}
+
+/* selecteur de classes */
+.grandetypo {
+    font-size: 50px;
+}
+
+/* selecteur id */
+#titreVert {
+    color : aquamarine;
+}
+
+/* style appliqué a deux type de balises et une classe */
+p, section, .bleu {
+    font-size: 35px;
+}
+
+.bleu {
+    color: blue;
+}
+
+/* selecteur element descendant, touche TOUS les element dans l'element */
+section h3 {   
+    color: coral;
+}
+
+/* selecteur d'enfant direct, restrictif sur l'enfant seulement et pas les sous enfants */
+span {
+    background-color: coral;
+}
+
+div > span {
+    background-color: darkseagreen;
+}
+
+/* selecteur élément adjacents (qui suit directement) /!\ avec le ~ cela voudrait dire que ça ne suit pas forcément directement */
+article+p {
+    background-color: cyan;
+}
