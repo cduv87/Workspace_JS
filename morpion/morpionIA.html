@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        td {
+           border: 1px solid black;
+        }
+     </style>
+    <title>morpion</title>
+</head>
+
+<body onload="tour()">
+    <h1>Jeu du morpion</h1>
+
+    <p id="tour"></p>
+
+    <table cellspacing="0">
+        <tr id="ligne1" height="50">
+         <td id="case11" width="50" name="11" onclick="jeu(this),endGame()"></td>
+         <td id="case12" width="50" name="12" onclick="jeu(this),endGame()"></td>
+         <td id="case13" width="50" name="13" onclick="jeu(this),endGame()"></td>
+        </tr>
+        <tr id="ligne2" height="50">
+         <td id="case21" width="50" name="21" onclick="jeu(this),endGame()"></td>
+         <td id="case22" width="50" name="22" onclick="jeu(this),endGame()"></td>
+         <td id="case23" width="50" name="23" onclick="jeu(this),endGame()"></td>
+        </tr height="50">
+        <tr id="ligne3" height="50">
+         <td id="case31" width="50" name="31" onclick="jeu(this),endGame()"></td>
+         <td id="case32" width="50" name="32" onclick="jeu(this),endGame()"></td>
+         <td id="case33" width="50" name="33" onclick="jeu(this),endGame()"></td>
+        </tr>
+     </table>
+
+<button id="btnReset" onclick="init();" >Reset</button><br>
+<p id="victoire"></p>
+
+
+    <script src="morpionIA.js"></script>
+</body>
+
+</html>
