@@ -1,0 +1,19 @@
+Je vous propose donc d’ajouter un nouveau mode de jeu, où le joueur peut attaquer un boss de fin selon les règles suivantes :
+
+    - Le boss de fin apparait dès que le joueur à atteint 30 points.
+	
+	- Le boss de fin possède comme le joueur des points de vie. 
+      Au démarrage, donnez 250 points de vie au boss de fin. Le joueur récupère tous ses points de vie (eh oui, il faut bien un peu de challenge !).
+
+	- Quand le joueur attaque, il lance un dé 25 et il inflige au boss de fin autant de points de vie en moins que le score du dé.
+	  De même, lorsque le boss de fin attaque le joueur, il lance un dé 25 et inflige les dégâts de la même façon.
+
+	- Le joueur peut éviter l’attaque du boss de fin grâce à son bouclier magique (que l’on a déjà créé dans le TP !).
+
+Pour créer ce mode de jeu, il va falloir prendre en compte les nouvelles classes et méthodes nécessaires :
+
+	- pour que le boss de fin et le joueur lancent le dé lors de leur affrontement ;
+
+	- pour que le boss de fin puisse attaquer un joueur et perdre des points quand il est attaqué en retour ;
+
+	- pour que le joueur puisse attaquer le boss de fin.
