@@ -1,26 +1,54 @@
-var click = "X";
+var jetonJoueur;
+var jetonAi;
+var aiBegin = false;
 var fin = false;
 var compteur = 0;
+var options;
+
+function aiPlayFirst(){
+    if(jetonAi == "X") {
+        aiPlay();
+    }
+}
+
+
+function aiPlay() {
+
+    let aiChoice = rand(options.length);
+    let tdChoice = options[aiChoice];
+    console.log(tdChoice);
+    tdChoice.innerHTML = jetonAi;
+    console.log(tdChoice);
+    console.log(tdChoice.getAttribute("name"));
+    tdChoice.setAttribute("name", jetonAi);
+    console.log(tdChoice.getAttribute("name"));
+    compteur++;
+    options.splice(aiChoice,1);
+    tour();
+
+}
+
+
 
 function jeu(td) {
 
     let valeur = td.innerHTML;
     if (fin != true) {
         if (valeur != "X" && valeur != "O") {
-            if (click == "X") {
-                td.innerHTML = click;
-                td.setAttribute("name", click);
-                click = "O";
-                compteur++;
-                tour();
-            } else {
-                td.innerHTML = click;
-                td.setAttribute("name", click);
-                click = "X";
-                compteur++;
-                tour();
+
+            td.innerHTML = jetonJoueur;
+            td.setAttribute("name", jetonJoueur);
+            compteur++;
+            let index;
+            for(let i = 0; i < options.length;i++){
+                if(td.getAttribute("name") == options[i].getAttribute("name")){
+                    index = i;
+                }
             }
+            options.splice(index,1);
+            tour();
         }
+        aiPlay();
     }
 }
 
@@ -37,37 +65,37 @@ function endGame() {
     let p = document.getElementById("victoire");
     p.style.color = "red";
 
-   
-        //condition row
-        if (c11 == c12 && c12 == c13) {
-            p.innerHTML = quiGagne();
-        }
-        if (c21 == c22 && c22 == c23) {
-            p.innerHTML = quiGagne();
-        }
-        if (c31 == c32 && c32 == c33) {
-            p.innerHTML = quiGagne();
-        }
-        //conbdition column
-        if (c11 == c21 && c21 == c31) {
-            p.innerHTML = quiGagne();
-        }
-        if (c12 == c22 && c22 == c32) {
-            p.innerHTML = quiGagne();
-        }
-        if (c13 == c23 && c23 == c33) {
-            p.innerHTML = quiGagne();
-        }
-        //condition diag
-        if (c11 == c22 && c22 == c33) {
-            p.innerHTML = quiGagne();
-        }
-        if (c13 == c22 && c22 == c31) {
-            p.innerHTML = quiGagne();
-        }
-        if(compteur == 9 && fin == false) {
-            p.innerHTML = "Egalité"
-        }
+
+    //condition row
+    if (c11 == c12 && c12 == c13) {
+        p.innerHTML = quiGagne();
+    }
+    if (c21 == c22 && c22 == c23) {
+        p.innerHTML = quiGagne();
+    }
+    if (c31 == c32 && c32 == c33) {
+        p.innerHTML = quiGagne();
+    }
+    //conbdition column
+    if (c11 == c21 && c21 == c31) {
+        p.innerHTML = quiGagne();
+    }
+    if (c12 == c22 && c22 == c32) {
+        p.innerHTML = quiGagne();
+    }
+    if (c13 == c23 && c23 == c33) {
+        p.innerHTML = quiGagne();
+    }
+    //condition diag
+    if (c11 == c22 && c22 == c33) {
+        p.innerHTML = quiGagne();
+    }
+    if (c13 == c22 && c22 == c31) {
+        p.innerHTML = quiGagne();
+    }
+    if (compteur == 9 && fin == false) {
+        p.innerHTML = "Egalité"
+    }
 
 }
 
@@ -83,7 +111,9 @@ function quiGagne() {
 }
 
 function init() {
-    
+
+
+
     let c11 = document.getElementById("case11").setAttribute("name", "11");
     let c12 = document.getElementById("case12").setAttribute("name", "12");
     let c13 = document.getElementById("case13").setAttribute("name", "13");
@@ -104,10 +134,30 @@ function init() {
     click = "X";
     fin = false;
     compteur = 0;
+    options = Array.from(document.getElementsByTagName("td"));
+    tossCoin();
     tour();
 }
 
-function tour(){
+function tour() {
+
     let tour = document.getElementById("tour");
-    tour.innerHTML = "Joueur: "+ click;
+    tour.innerHTML = "Joueur: " + click;
+}
+
+function rand(length) {
+    return Math.floor(Math.random() * length + 1);
+}
+
+function tossCoin(){
+    let coin = Math.floor(Math.random()*2);
+    if(coin == 0) {
+        jetonAi = "O"
+        jetonJoueur = "X"
+
+    } else {
+        jetonAi = "X"
+        jetonJoueur = "O"
+
+    }
 }

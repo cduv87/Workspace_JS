@@ -13,9 +13,9 @@
     <title>morpion</title>
 </head>
 
-<body onload="tour()">
+<body onload="init(),aiPlayFirst()">
     <h1>Jeu du morpion</h1>
-
+    <p id="tossCoin"></p>
     <p id="tour"></p>
 
     <table cellspacing="0">
@@ -36,7 +36,7 @@
         </tr>
      </table>
 
-<button id="btnReset" onclick="init();" >Reset</button><br>
+<button id="btnReset" onclick="init(),aiPlayFirst()" >Reset</button><br>
 <p id="victoire"></p>
 
 
