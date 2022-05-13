@@ -6,22 +6,23 @@ abstract class FigureGeometrique {
 
     constructor(couleur: string) {
 
-
-
         this.couleur = couleur;
 
     }
 
     getCouleur(): string {
+
         return this.couleur;
+
     }
 
     setCouleur(couleur: string) {
+        
         this.couleur = couleur;
 
     }
 
-    abstract calculAire():number;
+    abstract calculAire(): number;
 
 }
 
@@ -29,22 +30,29 @@ class Carre extends FigureGeometrique {
 
     private cote: number;
 
-    constructor(couleur: string , cote: number) {
+    constructor(couleur: string, cote: number) {
+
         super(couleur);
         this.cote = cote;
+
     }
 
-    getCote():number {
+    getCote(): number {
+
         return this.cote;
 
     }
 
-    calculPerimeter():number {
+    calculPerimeter(): number {
+
         return 4 * this.cote;
+
     }
 
     calculAire(): number {
+
         return this.cote * this.cote;
+
     }
 
 }
